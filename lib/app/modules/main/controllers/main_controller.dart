@@ -4,8 +4,11 @@ import 'package:flutter_tesseract_ocr/android_ios.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
 import 'package:halalin/app/data/services/halal_services.dart';
+import 'package:halalin/app/modules/main/views/tabs/about/views/about_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/bookmark/views/bookmark_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/explore/views/explore_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/home/views/home_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/news/views/news_view.dart';
 import 'package:image_picker/image_picker.dart';
 
 class MainController extends GetxController {
@@ -14,8 +17,10 @@ class MainController extends GetxController {
   final RxInt currentIndex = 0.obs;
   List<Widget> viewBody = [
     const HomeView(),
+    ExploreView(),
     Container(),
     const BookmarkView(),
+    AboutView(),
   ];
 
   RxString ocrText = ''.obs;

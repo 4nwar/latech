@@ -25,15 +25,17 @@ class MainView extends GetView<MainController> {
           backgroundColor: primaryAccent,
           onTap: (index) async {
             controller.currentIndex.value = index;
-            if (controller.currentIndex.value == 1) {
+            if (controller.currentIndex.value == 2) {
               await Get.toNamed(Routes.OCR);
               controller.currentIndex.value = 0;
             }
           },
           items: [
-            tabItem(Iconsax.home, 0, controller.currentIndex.value),
-            tabItemwithSize(Iconsax.scan, 1, controller.currentIndex.value, 32),
-            tabItem(Iconsax.bookmark, 2, controller.currentIndex.value),
+            tabItem(Iconsax.home5, 0, controller.currentIndex.value),
+            tabItem(Iconsax.search_normal, 1, controller.currentIndex),
+            tabItem(Iconsax.scan, 2, controller.currentIndex.value),
+            tabItem(Iconsax.bookmark5, 3, controller.currentIndex.value),
+            tabItem(Iconsax.info_circle5, 4 , controller.currentIndex)
           ]);
     }));
   }

@@ -39,6 +39,7 @@ class CameraView extends StatefulWidget {
 }
 
 class _CameraViewState extends State<CameraView> {
+  bool _isCameraInitialized = false;
   ScreenMode _mode = ScreenMode.liveFeed;
   CameraController? _controller;
   File? _image;
@@ -381,8 +382,11 @@ class _CameraViewState extends State<CameraView> {
       camera,
       ResolutionPreset.high,
       enableAudio: false,
+      imageFormatGroup: ImageFormatGroup.yuv420
     );
-    _controller?.initialize().then((_) {
+
+    
+    _controller?.initialize().then((_) async {
       if (!mounted) {
         return;
       }
@@ -394,7 +398,20 @@ class _CameraViewState extends State<CameraView> {
         maxZoomLevel = value;
       });
       _controller?.startImageStream(_processCameraImage);
-      setState(() {});
+
+      // Initialize controller
+      try {
+        await _controller?.initialize();
+      } on CameraException catch (e) {
+        print('Error initializing camera: $e');
+      }
+
+      // Update the Boolean
+      if (mounted) {
+        setState(() {
+           _isCameraInitialized = _controller!.value.isInitialized;
+        });
+      }
     });
   }
 

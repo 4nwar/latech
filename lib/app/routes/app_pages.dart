@@ -1,7 +1,12 @@
 import 'package:get/get.dart';
+import 'package:halalin/app/modules/detail_news/views/detail_news_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/explore/bindings/explore_binding.dart';
+import 'package:halalin/app/modules/main/views/tabs/explore/views/explore_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/news/bindings/news_binding.dart';
+import 'package:halalin/app/modules/main/views/tabs/news/views/news_view.dart';
 
-import '../modules/about/bindings/about_binding.dart';
-import '../modules/about/views/about_view.dart';
+import '../modules/main/views/tabs/about/bindings/about_binding.dart';
+import '../modules/main/views/tabs/about/views/about_view.dart';
 import '../modules/detail_product/bindings/detail_product_binding.dart';
 import '../modules/detail_product/views/detail_product_view.dart';
 import '../modules/detail_result/bindings/detail_result_binding.dart';
@@ -70,6 +75,21 @@ class AppPages {
       name: _Paths.DETAIL_PRODUCT,
       page: () => const DetailProductView(),
       binding: DetailProductBinding(),
+    ),
+    GetPage(
+      name: _Paths.NEWS, 
+      page: () => NewsView(),
+      binding: NewsBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXPLORE, 
+      page: () => ExploreView(),
+      binding: ExploreBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_NEWS,
+      page: () => DetailNewsView(),
+      binding: NewsBinding()
     ),
   ];
 }

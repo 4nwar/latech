@@ -56,7 +56,7 @@ class HomeView extends GetView<HomeController> {
             ),
             SliverPadding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+                  const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               sliver: SliverGrid(
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200.0,

@@ -17,7 +17,7 @@ class AboutController extends GetxController {
         bagian: "Software Engineer",
         gambar: thoriqPhotoProfile),
     Team(
-        nama: "Anwar Sadad",
+        nama: "Nor Mohammad A.S",
         bagian: "UI / UX Designer",
         gambar: sadadPhotoProfile),
     Team(

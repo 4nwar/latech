@@ -12,7 +12,7 @@ class AboutView extends GetView<AboutController> {
   @override
   Widget build(BuildContext context) {
     Get.put(AboutController());
-    List<Widget> sliverList(){
+    List<Widget> sliverList() {
       Widget apbbar = SliverAppBar(
           backgroundColor: primary,
           pinned: true,
@@ -31,7 +31,7 @@ class AboutView extends GetView<AboutController> {
           childAspectRatio: 0.95,
         ),
         delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
+          (BuildContext context, int index) {
             // return Container(
             //   color: primary,
             //   child: Text(products[index].nama),
@@ -39,31 +39,37 @@ class AboutView extends GetView<AboutController> {
             return Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, top: 40),
               child: Container(
-                color: primaryAccentVariant,
+                  color: primaryAccentVariant,
                   child: Column(
                     children: [
                       Expanded(
                         child: Container(
-                          width: getDeviceWidth(context),
-                          // color: primary,
+                            width: getDeviceWidth(context),
+                            // color: primary,
                             decoration: BoxDecoration(
-                              color: primary,
-                              shape: BoxShape.circle
-                            ),
-                            child: Center(child: Image.asset(controller.teamList[index].gambar))),
+                                color: primary, shape: BoxShape.circle),
+                            child: Center(
+                                child: Image.asset(
+                                    controller.teamList[index].gambar))),
                       ),
-
                       Padding(
                         padding: const EdgeInsets.only(top: 16.0),
-                        child: Text(controller.teamList[index].nama, style: textCustom(FontWeight.w500, 12, Colors.black),),
+                        child: Text(
+                          controller.teamList[index].nama,
+                          style: textCustom(FontWeight.w500, 12, Colors.black),
+                        ),
                       ),
-                      Text("(${controller.teamList[index].bagian})", style: textCustom(FontWeight.w500, 12, Colors.black),)
+                      Text(
+                        "(${controller.teamList[index].bagian})",
+                        style: textCustom(FontWeight.w500, 12, Colors.black),
+                      )
                     ],
                   )),
             );
           },
           childCount: controller.teamList.length,
-        ),);
+        ),
+      );
 
       List<Widget> sliver = [];
 
@@ -74,11 +80,10 @@ class AboutView extends GetView<AboutController> {
     }
 
     return Scaffold(
-      backgroundColor: primaryAccentVariant,
-      body: CustomScrollView(
-        slivers: sliverList(),
-      )
-    );
+        backgroundColor: primaryAccentVariant,
+        body: CustomScrollView(
+          slivers: sliverList(),
+        ));
   }
 
   ShapeBorder appBarShape() {
@@ -105,7 +110,7 @@ class AboutView extends GetView<AboutController> {
           child: Image.asset(ornamentAboutRight),
         ),
         Align(
-          alignment: Alignment.topCenter,
+            alignment: Alignment.topCenter,
             child: Column(
               children: [
                 Padding(
@@ -117,14 +122,23 @@ class AboutView extends GetView<AboutController> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 16.0),
-                  child: Text("Scan Your", style: textCustom(FontWeight.w700, 16, primaryAccent),),
+                  child: Text(
+                    "Scan Your",
+                    style: textCustom(FontWeight.w700, 16, primaryAccent),
+                  ),
                 ),
-                Text("FOODS", style: textCustom(FontWeight.w700, 18, primaryAccent),),
-                Text("For Better Life", style: textCustom(FontWeight.w600, 14, primaryAccent),),
+                Text(
+                  "FOODS",
+                  style: textCustom(FontWeight.w700, 18, primaryAccent),
+                ),
+                Text(
+                  "For Better Life",
+                  style: textCustom(FontWeight.w600, 14, primaryAccent),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(
-                      "Latech Apps is a multiplatform application \nthat can help us in ensuring the halalness \nof food products based on ingredients",
+                    "Latech Apps is a multiplatform application \nthat can help us in ensuring the halalness \nof food products based on ingredients",
                     style: textCustom(FontWeight.w500, 13, primaryAccent),
                     textAlign: TextAlign.center,
                   ),
@@ -132,37 +146,33 @@ class AboutView extends GetView<AboutController> {
               ],
             )),
         // Align(alignment: Alignment.center, child: Image.asset(headline, scale: 4,),),
-
       ],
     );
   }
 
   PreferredSize appBarBottom(context) {
-    double height  = getDeviceHeight(context) * 0.28;
+    double height = getDeviceHeight(context) * 0.28;
     return PreferredSize(
       preferredSize: Size.fromHeight(height),
       child: Transform.translate(
           offset: const Offset(0, 24),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Container(
-                width: 100,
-                color: primaryVariant,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Our team",
-                    textAlign: TextAlign.center,
-                    style: textCustom(FontWeight.w400, 12, Colors.black),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Container(
+                  width: 100,
+                  color: primaryVariant,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Our team",
+                      textAlign: TextAlign.center,
+                      style: textCustom(FontWeight.w400, 12, Colors.black),
+                    ),
                   ),
                 ),
-
-              ),
-            )
-          )),
+              ))),
     );
   }
-
 }

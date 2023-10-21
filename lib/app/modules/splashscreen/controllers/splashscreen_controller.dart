@@ -4,7 +4,7 @@ import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/modules/main/views/main_view.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 
-class SplashScreenController extends GetxController {
+class SplashScreenController extends GetxController{
   var opacity = 1.0.obs;
 
   @override

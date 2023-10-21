@@ -12,6 +12,9 @@ abstract class Routes {
   static const DETAIL_RESULT = _Paths.DETAIL_RESULT;
   static const BOOKMARK = _Paths.BOOKMARK;
   static const DETAIL_PRODUCT = _Paths.DETAIL_PRODUCT;
+  static const NEWS = _Paths.NEWS;
+  static const DETAIL_NEWS = _Paths.DETAIL_NEWS;
+  static const EXPLORE = _Paths.EXPLORE;
 }
 
 abstract class _Paths {
@@ -25,4 +28,7 @@ abstract class _Paths {
   static const DETAIL_RESULT = '/detail-result';
   static const BOOKMARK = '/bookmark';
   static const DETAIL_PRODUCT = '/detail-product';
+  static const NEWS = '/news';
+  static const EXPLORE = '/explore';
+  static const DETAIL_NEWS = '/detail-news';
 }
