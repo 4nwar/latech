@@ -4,6 +4,8 @@ import 'package:halalin/app/modules/main/views/tabs/explore/bindings/explore_bin
 import 'package:halalin/app/modules/main/views/tabs/explore/views/explore_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/news/bindings/news_binding.dart';
 import 'package:halalin/app/modules/main/views/tabs/news/views/news_view.dart';
+import 'package:halalin/app/modules/search_product/bindings/search_product_controller.dart';
+import 'package:halalin/app/modules/search_product/views/search_product_view.dart';
 
 import '../modules/main/views/tabs/about/bindings/about_binding.dart';
 import '../modules/main/views/tabs/about/views/about_view.dart';
@@ -91,5 +93,10 @@ class AppPages {
       page: () => DetailNewsView(),
       binding: NewsBinding()
     ),
+    GetPage(
+      name: _Paths.SEARCH_PRODUCT, 
+      page: () => SearchProductView(),
+      binding: SearchProductBinding()
+    )
   ];
 }

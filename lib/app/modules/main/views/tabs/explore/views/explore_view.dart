@@ -46,7 +46,7 @@ class ExploreView extends GetView<ExploreController> {
                   onTap: () {
                     controller.navigateToExplorePage(controller.explore[index].kat);
                     // ini nanti idi arahin ke pagenya
-                    print(controller.explore[index].kat);
+                    // print(controller.explore[index].kat);
                   },
                   child: new Stack(
                     children: [
@@ -89,7 +89,7 @@ class ExploreView extends GetView<ExploreController> {
                       //   )
                       // )
                       Positioned(
-                          bottom: 20,
+                          top: (getDeviceHeight(context) * 0.18) / 2,
                           left: 20,
                           child: Column(
                             // mainAxisAlignment: MainAxisAlignment.start,

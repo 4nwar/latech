@@ -16,7 +16,7 @@ class ExploreController extends GetxController {
         Get.toNamed(Routes.NEWS);
         break;
       case "Product":
-        Get.toNamed(Routes.BOOKMARK); //ubah ke sebenar
+        Get.toNamed(Routes.SEARCH_PRODUCT); //ubah ke sebenar
         break;
       case "E-Code":
         Get.toNamed(Routes.ABOUT); //ubah ke sebenar
