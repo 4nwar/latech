@@ -19,7 +19,7 @@ class ExploreController extends GetxController {
         Get.toNamed(Routes.SEARCH_PRODUCT); //ubah ke sebenar
         break;
       case "E-Code":
-        Get.toNamed(Routes.ABOUT); //ubah ke sebenar
+        Get.toNamed(Routes.SEARCH_ECODE); //ubah ke sebenar
         break;
       default:
         // Tindakan default jika tipe tidak dikenali

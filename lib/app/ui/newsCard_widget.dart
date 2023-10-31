@@ -88,7 +88,11 @@ class NewsCardWidget extends StatelessWidget {
                   child: new Text(
                     "Ministry of Cooperatives and SMEs of The Republic of Indonesia: Indonesia Ranked Second in Halal Industrial Products Consumption Trends", //ini judul dari api
                     style: textCustom(
-                        semiBoldFont, 16, Colors.black.withOpacity(0.85)),
+                        semiBoldFont, 16, Colors.black.withOpacity(0.85)
+                    ),
+                    maxLines: 2,
+                    softWrap: false,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   // child: new Column(
                   //   mainAxisAlignment: MainAxisAlignment.center,

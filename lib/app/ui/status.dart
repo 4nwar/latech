@@ -10,7 +10,7 @@ List<Widget> label({required Ingredient ingred}) {
     var color;
     if (v.toLowerCase() == 'halal') {
       color = Colors.green;
-    } else if (v.toLowerCase() == 'mushbooh') {
+    } else if (v.toLowerCase() == 'doubfull') {
       color = Colors.amber;
     } else {
       color = Colors.redAccent;
@@ -49,7 +49,7 @@ List<Widget> labelDetail({required Ingredient ingred}) {
     var color;
     if (v.toLowerCase() == 'halal') {
       color = Colors.green;
-    } else if (v.toLowerCase() == 'mushbooh') {
+    } else if (v.toLowerCase() == 'doubfull') {
       color = Colors.amber;
     } else {
       color = Colors.redAccent;

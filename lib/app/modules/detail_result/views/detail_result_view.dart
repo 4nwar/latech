@@ -27,7 +27,7 @@ class DetailResultView extends GetView<DetailResultController> {
               children: [
                 Image.asset(resultCard),
                 Padding(
-                  padding: const EdgeInsets.all(26.0),
+                  padding: const EdgeInsets.all(24.0),
                   child: SizedBox(
                     height: 100,
                     child: Column(
@@ -42,7 +42,8 @@ class DetailResultView extends GetView<DetailResultController> {
                         ),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: labelDetail(ingred: ingred)),
+                            children: labelDetail(ingred: ingred)
+                        ), // ubah cukup satau status jadi gak pake row
                       ],
                     ),
                   ),

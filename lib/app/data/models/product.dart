@@ -1,31 +1,29 @@
-class Product {
-  String nama;
-  String ingredient;
-  String gambar;
-  String is_bookmark;
+class ProductModel {
+  final String regProdName;
+  final PelakuUsahaModel pelakuUsaha;
+  final SertifikatModel sertifikat;
 
-  Product({
-    required this.nama,
-    required this.ingredient,
-    required this.gambar,
-    required this.is_bookmark,
+  ProductModel({
+    required this.regProdName,
+    required this.pelakuUsaha,
+    required this.sertifikat,
   });
+}
 
-  factory Product.fromJson(Map json) {
-    return Product(
-      nama: json['nama'],
-      ingredient: json['ingredient'],
-      gambar: json['gambar'],
-      is_bookmark: json['is_bookmark'] ?? 'false',
-    );
-  }
+class PelakuUsahaModel {
+  final String namaPu;
 
-  toMap() {
-    return {
-      'nama': nama,
-      'ingredient': ingredient,
-      'gambar': gambar,
-      'is_bookmark': is_bookmark,
-    };
-  }
+  PelakuUsahaModel({
+    required this.namaPu,
+  });
+}
+
+class SertifikatModel {
+  final String tglSert;
+  final String noSert;
+
+  SertifikatModel({
+    required this.tglSert,
+    required this.noSert,
+  });
 }

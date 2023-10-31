@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:halalin/app/data/models/product.dart';
+import 'package:halalin/app/data/models/product_.dart';
 
 import '../controllers/detail_product_controller.dart';
 

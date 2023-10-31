@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:halalin/app/constant/values.dart';
-import 'package:halalin/app/data/models/product.dart';
+import 'package:halalin/app/data/models/product_.dart';
 import 'package:halalin/app/data/services/service_preferences.dart';
 
 class ProductServices {
