@@ -7,8 +7,14 @@ import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../data/models/NewsItem.dart';
+
 class NewsCardWidget extends StatelessWidget {
-  const NewsCardWidget({super.key});
+
+  final NewsItem newsItem;
+
+  const NewsCardWidget({required this.newsItem, Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +36,8 @@ class NewsCardWidget extends StatelessWidget {
                   children: [
                     new ClipRRect(
                       child: Image.network(
-                        "https://halalmui.org/wp-content/uploads/2023/08/logo-lppommui-low-300x225.jpg", // ini akan di ubah sesuai dengan img api
+                        newsItem.img,
+                        // "https://halalmui.org/wp-content/uploads/2023/08/logo-lppommui-low-300x225.jpg", // ini akan di ubah sesuai dengan img api
                         fit: BoxFit.cover,
                         width: getDeviceWidth(context),
                         height: getDeviceHeight(context) * 0.25,
@@ -65,7 +72,9 @@ class NewsCardWidget extends StatelessWidget {
                             color: Colors.lightGreen,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: Text("News", //ini ubah sesuai api
+                          child: Text(
+                            newsItem.category,
+                            // "News", //ini ubah sesuai api
                               style: textCustom(mediumFont, 12, Colors.white)),
                         )),
                     //dibawah ini sebenarnya ada tombol untuk archive
@@ -86,7 +95,8 @@ class NewsCardWidget extends StatelessWidget {
                 new Padding(
                   padding: new EdgeInsets.symmetric(vertical: 8, horizontal: 4),
                   child: new Text(
-                    "Ministry of Cooperatives and SMEs of The Republic of Indonesia: Indonesia Ranked Second in Halal Industrial Products Consumption Trends", //ini judul dari api
+                    newsItem.title,
+                    // "Ministry of Cooperatives and SMEs of The Republic of Indonesia: Indonesia Ranked Second in Halal Industrial Products Consumption Trends", //ini judul dari api
                     style: textCustom(
                         semiBoldFont, 16, Colors.black.withOpacity(0.85)
                     ),

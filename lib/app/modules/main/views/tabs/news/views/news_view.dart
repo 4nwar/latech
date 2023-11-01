@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,9 +8,7 @@ import 'package:halalin/app/ui/newsCard_widget.dart';
 import 'package:iconsax/iconsax.dart';
 
 class NewsView extends GetView<NewsController> {
-
   NewsView({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -19,30 +16,84 @@ class NewsView extends GetView<NewsController> {
 
     final NewsController newsController = Get.put(NewsController());
     Get.put(NewsController());
-    return DefaultTabController(length: newsController.tabs.length, child:Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.white,
-        elevation: 0,
-        title: const Text(
-          'Latech - Halal Article'
+    return DefaultTabController(
+      length: newsController.tabs.length,
+      child: Scaffold(
+        appBar: AppBar(
+          foregroundColor: Colors.white,
+          elevation: 0,
+          title: const Text('Latech - Halal Article'),
+          // centerTitle: true,
+          backgroundColor: primary,
+          bottom: TabBar(
+            tabs: newsController.tabs,
+            isScrollable: false,
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.white60,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorColor: Colors.white,
+          ),
+          actions: <Widget>[
+            Icon(
+              Iconsax.search_normal,
+              color: Colors.white,
+            ),
+            SizedBox(
+              width: 12,
+            )
+          ],
         ),
-        // centerTitle: true,
-        backgroundColor: primary,
-        bottom: TabBar(
-          tabs: newsController.tabs,
-          isScrollable: false,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white60,
-          indicatorSize: TabBarIndicatorSize.label,
-          indicatorColor: Colors.white,
-        ),
-        actions: <Widget>[
-          Icon(Iconsax.search_normal, color: Colors.white,),
-          SizedBox(width: 12,)
-        ],
-      ),
-      body: TabBarView(
-        children: newsController.tabs.map((model) => NewsCardWidget()).toList(), 
+        body: TabBarView(
+          children: [
+            for (var tab in newsController.tabs)
+              Obx(
+                () {
+                  if (tab == 'Article') {
+                    if (newsController.isLoading.value) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else {
+                      return ListView.builder(
+                        itemCount: newsController.articlesData.length,
+                        itemBuilder: (context, index) {
+                          final data = newsController.articlesData[index];
+                          return NewsCardWidget(newsItem: data);
+                        },
+                      );
+                    }
+                  } else if (tab == 'News') {
+                    if (newsController.isLoading.value) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else {
+                      return ListView.builder(
+                        itemCount: newsController.newsData.length,
+                        itemBuilder: (context, index) {
+                          final data = newsController.newsData[index];
+                          return NewsCardWidget(newsItem: data);
+                        },
+                      );
+                    }
+                  } else {
+                    if (newsController.isLoading.value) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else {
+                      return ListView.builder(
+                        itemCount: newsController.ukmData.length,
+                        itemBuilder: (context, index) {
+                          final data = newsController.ukmData[index];
+                          return NewsCardWidget(newsItem: data);
+                        },
+                      );
+                    }
+                  }
+                },
+              ),
+          ],
         ),
       ),
     );
