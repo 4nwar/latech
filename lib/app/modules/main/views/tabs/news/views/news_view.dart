@@ -48,7 +48,7 @@ class NewsView extends GetView<NewsController> {
             for (var tab in newsController.tabs)
               Obx(
                 () {
-                  if (tab == 'Article') {
+                  if (tab == 'article') {
                     if (newsController.isLoading.value) {
                       return Center(
                         child: CircularProgressIndicator(),
@@ -62,7 +62,7 @@ class NewsView extends GetView<NewsController> {
                         },
                       );
                     }
-                  } else if (tab == 'News') {
+                  } else if (tab == 'news') {
                     if (newsController.isLoading.value) {
                       return Center(
                         child: CircularProgressIndicator(),

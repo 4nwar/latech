@@ -78,7 +78,10 @@ class SearchProductView extends GetView<SearchProductController> {
                   itemCount: productList.length,
                   itemBuilder: (context, index) {
                     // Tampilkan hasil pencarian di sini
-                    return buildProductCard(productList[index]);
+                    return SizedBox(
+                      height : 180,
+                      child: buildProductCard(productList[index]),
+                    );
                   },
                 );
               }
@@ -96,89 +99,95 @@ class SearchProductView extends GetView<SearchProductController> {
         elevation: 1,
         shape: new RoundedRectangleBorder(
             borderRadius: new BorderRadius.circular(16)),
-        child: new Stack(
-          children: [
-            Container(
-              height: 150,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color.fromRGBO(4, 170, 137, 1),
-                        Color.fromRGBO(55, 217, 178, 0.9)
-                      ]
-                  )
-              ),
-            ),
-            new ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                //resultcard akan di ubah jadi ornament card transparant
-                ornamentProduct,
-                fit: BoxFit.cover,
+        child: SizedBox.expand(
+          child: new Stack(
+            children: [
+              Container(
+                // height: 150,
                 width: double.infinity,
-                //tinggi inanti sesuaikan
-                height: 150,
-              ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16, top: 20),
-                      child: Text(
-                        product.regProdName, //ubah api
-                        style: textCustom(semiBoldFont, 20, Colors.white),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16),
-                      child: Text(
-                        product.pelakuUsaha.namaPu, //ubah api
-                        style: textCustom(mediumFont, 14, Colors.white),
-                      ),
-                    ),
-                  ],
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color.fromRGBO(4, 170, 137, 1),
+                          Color.fromRGBO(55, 217, 178, 0.9)
+                        ]
+                    )
                 ),
-                SizedBox(height: 10),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              ),
+              new ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  //resultcard akan di ubah jadi ornament card transparant
+                  ornamentProduct,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  //tinggi inanti sesuaikan
+                  // height: 150,
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        product.sertifikat.noSert, //ubah api
-                        style: textCustom(mediumFont, 14, Colors.white),
-                      ),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                        // margin: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: primary,
-                          borderRadius: BorderRadius.circular(8),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16, top: 20),
+                        child: Text(
+                          product.regProdName, //ubah api
+                          style: textCustom(semiBoldFont, 20, Colors.white),
+                          softWrap: false,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        child: Text(product.sertifikat.tglSert, //ini ubah sesuai api
-                            style: textCustom(mediumFont, 12, Colors.white)),
-                      )
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Text(
+                          product.pelakuUsaha.namaPu, //ubah api
+                          style: textCustom(mediumFont, 14, Colors.white),
+                        ),
+                      ),
                     ],
                   ),
-                )
-              ],
-            )
-          ],
+                  // SizedBox(height: 10),maxLines: 2,
+                    
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          product.sertifikat.noSert, //ubah api
+                          style: textCustom(mediumFont, 14, Colors.white),
+                        ),
+                        Container(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                          // margin: EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: primary,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Text(product.sertifikat.tglSert, //ini ubah sesuai api
+                              style: textCustom(mediumFont, 12, Colors.white)),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
   }
+  
 }

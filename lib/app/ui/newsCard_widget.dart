@@ -35,8 +35,9 @@ class NewsCardWidget extends StatelessWidget {
                 Stack(
                   children: [
                     new ClipRRect(
-                      child: Image.network(
-                        newsItem.img,
+                      child: Image.asset(
+                        ornamentProduct,
+                        // newsItem.img,
                         // "https://halalmui.org/wp-content/uploads/2023/08/logo-lppommui-low-300x225.jpg", // ini akan di ubah sesuai dengan img api
                         fit: BoxFit.cover,
                         width: getDeviceWidth(context),
