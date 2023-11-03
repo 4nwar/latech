@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
+import 'package:halalin/app/data/models/ecode.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 
@@ -72,3 +73,4 @@ List<Widget> labelDetail({required Ingredient ingred}) {
 
   return label;
 }
+

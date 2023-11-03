@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:halalin/app/modules/detail_ecode/bindings/detail_ecode_binding.dart';
+import 'package:halalin/app/modules/detail_ecode/views/detail_ecode_view.dart';
 import 'package:halalin/app/modules/detail_news/views/detail_news_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/explore/bindings/explore_binding.dart';
 import 'package:halalin/app/modules/main/views/tabs/explore/views/explore_view.dart';
@@ -103,6 +105,10 @@ class AppPages {
     GetPage(
       name: _Paths.SEARCH_ECODE,
       page: () => SearchEcodeView(),
-      binding: SearchEcodeBinding())
+      binding: SearchEcodeBinding()),
+    GetPage(
+        name: _Paths.DETAIL_ECODE,
+        page: () => DetailEcodeView(),
+        binding: DetailEcodeBinding()),
   ];
 }
