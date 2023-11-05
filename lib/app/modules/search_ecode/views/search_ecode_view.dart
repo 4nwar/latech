@@ -92,17 +92,7 @@ class SearchEcodeView extends GetView<SearchEcodeController> {
               );
             }
           }))
-              //   child: ListView.builder(
-              //   itemCount: ecodeList.length,
-              //   itemBuilder: (context, index) {
-              //     // Tampilkan hasil pencarian di sini
-              //     return SizedBox(
-              //       height: 160,
-              //       child: buildEcodeCard(ecodeList[index]),
-              //     );
-              //   },
-              // )
-              )
+          )
         ],
       ),
     );

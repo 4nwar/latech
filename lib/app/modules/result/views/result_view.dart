@@ -6,19 +6,25 @@ import 'package:get/get.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
+import 'package:halalin/app/data/models/ecode.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
+import 'package:halalin/app/data/services/ecode_service.dart';
 import 'package:halalin/app/data/services/halal_services.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 import 'package:halalin/app/ui/status.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
+import '../../../ui/ecodeCard_widget.dart';
 import '../controllers/result_controller.dart';
 
 class ResultView extends GetView<ResultController> {
-  const ResultView({Key? key}) : super(key: key);
+  ResultView({Key? key}) : super(key: key);
+  
+  // final ecodeList = <EcodeModel>[].obs;
   @override
   Widget build(BuildContext context) {
+    // final ecodeList = <EcodeModel>[].obs;
     File inputFile = Get.arguments;
     final TextRecognizer textRecognizer =
         TextRecognizer(script: TextRecognitionScript.chinese);
@@ -131,8 +137,9 @@ class ResultView extends GetView<ResultController> {
               ),
             ),
             (snapshot.data != null)
-                ? FutureBuilder<List<Ingredient>>(
-                    future: HalalServices.getHalal(input: snapshot.data!.text),
+                ? FutureBuilder<List<EcodeModel>>(
+                    future: EcodeService.getEcodeHalal(input: snapshot.data!.text),
+                    // future: HalalServices.getHalal(input: snapshot.data!.text),
                     builder: (context, ingredients) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return const CircularProgressIndicator();
@@ -159,45 +166,50 @@ class ResultView extends GetView<ResultController> {
                               itemCount: ingredients.data!.length,
                               itemBuilder: (context, index) {
                                 var dataResult = ingredients.data![index];
-                                return Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 16),
-                                  child: Stack(
-                                    children: [
-                                      Image.asset(resultCard),
-                                      Padding(
-                                        padding: const EdgeInsets.all(26.0),
-                                        child: SizedBox(
-                                          height: 100,
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(dataResult.name,
-                                                  style: const TextStyle(
-                                                      fontSize: 14)),
-                                              Text(
-                                                dataResult.kode,
-                                                style: const TextStyle(
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.w600),
-                                              ),
-                                              Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: label(
-                                                      ingred: dataResult)),
-                                            ],
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                return SizedBox(
+                                  height: 160,
+                                  child: buildEcodeCard(dataResult),
                                 );
+                                // return Padding(
+                                //   padding:
+                                //       const EdgeInsets.symmetric(vertical: 16),
+                                //   child: Stack(
+                                //     children: [
+                                //       Image.asset(resultCard),
+                                //       Padding(
+                                //         padding: const EdgeInsets.all(26.0),
+                                //         child: SizedBox(
+                                //           height: 100,
+                                //           child: Column(
+                                //             crossAxisAlignment:
+                                //                 CrossAxisAlignment.start,
+                                //             mainAxisAlignment:
+                                //                 MainAxisAlignment.spaceBetween,
+                                //             children: [
+                                //               Text(dataResult.name,
+                                //                   style: const TextStyle(
+                                //                       fontSize: 14)),
+                                //               Text(
+                                //                 //ini saya rubah kode ke id
+                                //                 dataResult.id,
+                                //                 style: const TextStyle(
+                                //                     fontSize: 20,
+                                //                     fontWeight:
+                                //                         FontWeight.w600),
+                                //               ),
+                                //               Row(
+                                //                   mainAxisAlignment:
+                                //                       MainAxisAlignment
+                                //                           .spaceBetween,
+                                //                   children: label(
+                                //                       ingred: dataResult)),
+                                //             ],
+                                //           ),
+                                //         ),
+                                //       )
+                                //     ],
+                                //   ),
+                                // );
                               },
                             ),
                           ),

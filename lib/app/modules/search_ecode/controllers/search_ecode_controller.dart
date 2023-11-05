@@ -24,6 +24,8 @@ class SearchEcodeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    //ini coba klo eror ya di matiin
+    searchEcode(" ");
   }
 
   @override

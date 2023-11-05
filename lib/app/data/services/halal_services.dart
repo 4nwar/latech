@@ -9,6 +9,8 @@ class HalalServices {
   // static HalalServices get instance => _instance;
   // HalalServices._internal();
 
+  //batas---
+
   // get dataset
   static Future<List<Ingredient>> getDataService() async {
     var load = await rootBundle.loadString('assets/dataset/dataset\.json');

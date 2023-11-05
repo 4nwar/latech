@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:halalin/app/modules/main/views/tabs/news/controllers/news_controller.dart';
 import 'package:halalin/app/ui/newsCard_widget.dart';
-import 'package:iconsax/iconsax.dart';
+
+import '../../../../../../data/models/NewsItem.dart';
 
 class NewsView extends GetView<NewsController> {
   NewsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    //argument Get
-
     final NewsController newsController = Get.put(NewsController());
-    Get.put(NewsController());
+
     return DefaultTabController(
       length: newsController.tabs.length,
       child: Scaffold(
@@ -23,7 +21,6 @@ class NewsView extends GetView<NewsController> {
           foregroundColor: Colors.white,
           elevation: 0,
           title: const Text('Latech - Halal Article'),
-          // centerTitle: true,
           backgroundColor: primary,
           bottom: TabBar(
             tabs: newsController.tabs,
@@ -45,57 +42,69 @@ class NewsView extends GetView<NewsController> {
         ),
         body: TabBarView(
           children: [
-            for (var tab in newsController.tabs)
-              Obx(
-                () {
-                  if (tab == 'article') {
-                    if (newsController.isLoading.value) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else {
-                      return ListView.builder(
-                        itemCount: newsController.articlesData.length,
-                        itemBuilder: (context, index) {
-                          final data = newsController.articlesData[index];
-                          return NewsCardWidget(newsItem: data);
-                        },
-                      );
-                    }
-                  } else if (tab == 'news') {
-                    if (newsController.isLoading.value) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else {
-                      return ListView.builder(
-                        itemCount: newsController.newsData.length,
-                        itemBuilder: (context, index) {
-                          final data = newsController.newsData[index];
-                          return NewsCardWidget(newsItem: data);
-                        },
-                      );
-                    }
-                  } else {
-                    if (newsController.isLoading.value) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else {
-                      return ListView.builder(
-                        itemCount: newsController.ukmData.length,
-                        itemBuilder: (context, index) {
-                          final data = newsController.ukmData[index];
-                          return NewsCardWidget(newsItem: data);
-                        },
-                      );
-                    }
-                  }
-                },
-              ),
+            Obx(() {
+              if (newsController.isLoading.value) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                return ListView.builder(
+                  itemCount: newsController.articlesData.length,
+                  itemBuilder: (context, index) {
+                    final data = newsController.articlesData[index];
+                    return NewsCardWidget(newsItem: data);
+                  },
+                );
+              }
+            }),
+            Obx(() {
+              if (newsController.isLoading.value) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                return ListView.builder(
+                  itemCount: newsController.newsData.length,
+                  itemBuilder: (context, index) {
+                    final data = newsController.newsData[index];
+                    return NewsCardWidget(newsItem: data);
+                  },
+                );
+              }
+            }),
+            Obx(() {
+              if (newsController.isLoading.value) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                return ListView.builder(
+                  itemCount: newsController.ukmData.length,
+                  itemBuilder: (context, index) {
+                    final data = newsController.ukmData[index];
+                    return NewsCardWidget(newsItem: data);
+                  },
+                );
+              }
+            }),
           ],
         ),
       ),
     );
+    Widget buildNewsList(List<NewsItem> data) {
+      if (newsController.isLoading.value) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      } else {
+        return ListView.builder(
+          itemCount: data.length,
+          itemBuilder: (context, index) {
+            final newsItem = data[index];
+            return NewsCardWidget(newsItem: newsItem);
+          },
+        );
+      }
+    }
   }
 }

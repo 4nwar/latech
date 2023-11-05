@@ -26,7 +26,7 @@ class NewsCardWidget extends StatelessWidget {
               borderRadius: new BorderRadius.circular(16)),
           child: new InkWell(
             onTap: () {
-              Get.toNamed(Routes.DETAIL_NEWS);
+              Get.toNamed(Routes.DETAIL_NEWS, arguments: newsItem);
             },
             child: new Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -35,10 +35,17 @@ class NewsCardWidget extends StatelessWidget {
                 Stack(
                   children: [
                     new ClipRRect(
-                      child: Image.asset(
-                        ornamentProduct,
-                        // newsItem.img,
-                        // "https://halalmui.org/wp-content/uploads/2023/08/logo-lppommui-low-300x225.jpg", // ini akan di ubah sesuai dengan img api
+                      // child: Image.asset(
+                      //   newsItem.img,
+                      //   // "https://halalmui.org/wp-content/uploads/2023/08/logo-lppommui-low-300x225.jpg", // ini akan di ubah sesuai dengan img api
+                      //   fit: BoxFit.cover,
+                      //   width: getDeviceWidth(context),
+                      //   height: getDeviceHeight(context) * 0.25,
+                      // ),
+                      child: FadeInImage.assetNetwork(
+                        //ubah place holder dengan img yang sesuaai
+                        placeholder: ornamentProduct,
+                        image: newsItem.img,
                         fit: BoxFit.cover,
                         width: getDeviceWidth(context),
                         height: getDeviceHeight(context) * 0.25,

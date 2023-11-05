@@ -16,15 +16,15 @@ class NewsController extends GetxController {
   void onInit() {
     super.onInit();
     tabs.add(Tab(
-      text: 'article',
+      text: 'news',
     ));
     tabs.add(Tab(
-      text: 'news',
+      text: 'article',
     ));
     tabs.add(Tab(
       text: 'ukm',
     ));
-    fetchData('article'); // Mengambil data untuk tab pertama saat inisialisasi
+    fetchData('news'); // Mengambil data untuk tab pertama saat inisialisasi
   }
 
   void fetchData(String category) async {
@@ -33,15 +33,16 @@ class NewsController extends GetxController {
       final service = NewsService();
       final data = await service.fetchNewsData(category);
 
-      if (category == 'Article') {
+      if (category == 'article') {
         articlesData.assignAll(data);
-      } else if (category == 'News') {
+      } else if (category == 'news') {
         newsData.assignAll(data);
-      } else if (category == 'MSE - Corner') {
+      } else if (category == 'ukm') {
         ukmData.assignAll(data);
       }
     } catch (e) {
       // Handle error
+      print(e);
     } finally {
       isLoading(false); // Set isLoading menjadi false setelah selesai
     }
