@@ -27,7 +27,7 @@ class DetailEcodeView extends StatelessWidget {
         children: [
           SizedBox(
             height: 160,
-            child: buildDetailEcodeCard(ecode)
+            child: buildDetailEcodeCard(ecode, context)
           ),
           const SizedBox(
             height: 32,

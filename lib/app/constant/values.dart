@@ -27,11 +27,22 @@ const String dickyPhotoProfile = 'assets/images/pp/dickyPP.png';
 const String krisnaPhotoProfile = 'assets/images/pp/krisnaPP.png';
 const String sadadPhotoProfile = 'assets/images/pp/sadadPP.png';
 const String thoriqPhotoProfile = 'assets/images/pp/thoriqPP.png';
+const String thumbNews = 'assets/images/newsCard.png';
+const String thumbArticle = 'assets/images/articleCard.png';
+const String thumbUkm = 'assets/images/ukmCard.png';
+const String bannerBottom = 'assets/images/bottomBanner.png';
+const String thumbScan = 'assets/images/ScanIcon.png';
+const String thumbExplore = 'assets/images/ExploreIcon.png';
 
 //text
+const String hintDate = "Unknown Date";
+const String hintWriter = "Unknown Writer";
 const String resultViewAppbarTitle = "Scan result";
 const String searchHintText = "Search halal foods";
 const String textImageError = "Whops! Unable to load image";
+const String textTumbNews = "Halal news is information that discusses food, beverages, products, or services that adhere to the principles of Islam.";
+const String textTumbarticle = "An article about halal is a piece of writing that explains topics related to food, beverages, products, or services that meet the requirements of Islamic law.";
+const String textTumbUkm = "SME Corner Halal is a specific place for small and medium-sized businesses that sell products or services in accordance with Islamic teachings.";
 
 //size
 double getDeviceHeight(BuildContext context) {

@@ -16,15 +16,17 @@ class NewsController extends GetxController {
   void onInit() {
     super.onInit();
     tabs.add(Tab(
-      text: 'news',
+      text: 'article',
     ));
     tabs.add(Tab(
-      text: 'article',
+      text: 'news',
     ));
     tabs.add(Tab(
       text: 'ukm',
     ));
-    fetchData('news'); // Mengambil data untuk tab pertama saat inisialisasi
+    fetchData('article'); 
+    fetchData('news'); 
+    fetchData('ukm'); 
   }
 
   void fetchData(String category) async {

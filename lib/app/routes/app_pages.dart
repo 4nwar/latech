@@ -2,14 +2,12 @@ import 'package:get/get.dart';
 import 'package:halalin/app/modules/detail_ecode/bindings/detail_ecode_binding.dart';
 import 'package:halalin/app/modules/detail_ecode/views/detail_ecode_view.dart';
 import 'package:halalin/app/modules/detail_news/views/detail_news_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/dashboard/bindings/dashboard_binding.dart';
+import 'package:halalin/app/modules/main/views/tabs/dashboard/views/dashboard_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/explore/bindings/explore_binding.dart';
 import 'package:halalin/app/modules/main/views/tabs/explore/views/explore_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/news/bindings/news_binding.dart';
 import 'package:halalin/app/modules/main/views/tabs/news/views/news_view.dart';
-import 'package:halalin/app/modules/search_ecode/bindings/search_ecode_binding.dart';
-import 'package:halalin/app/modules/search_ecode/views/search_ecode_view.dart';
-import 'package:halalin/app/modules/search_product/bindings/search_product_controller.dart';
-import 'package:halalin/app/modules/search_product/views/search_product_view.dart';
 
 import '../modules/main/views/tabs/about/bindings/about_binding.dart';
 import '../modules/main/views/tabs/about/views/about_view.dart';
@@ -21,6 +19,10 @@ import '../modules/main/bindings/main_binding.dart';
 import '../modules/main/views/main_view.dart';
 import '../modules/main/views/tabs/bookmark/bindings/bookmark_binding.dart';
 import '../modules/main/views/tabs/bookmark/views/bookmark_view.dart';
+import '../modules/main/views/tabs/explore/views/tabs/search_ecode/bindings/search_ecode_binding.dart';
+import '../modules/main/views/tabs/explore/views/tabs/search_ecode/views/search_ecode_view.dart';
+import '../modules/main/views/tabs/explore/views/tabs/search_product/bindings/search_product_controller.dart';
+import '../modules/main/views/tabs/explore/views/tabs/search_product/views/search_product_view.dart';
 import '../modules/main/views/tabs/home/bindings/home_binding.dart';
 import '../modules/main/views/tabs/home/views/home_view.dart';
 import '../modules/main/views/tabs/ocr/bindings/ocr_binding.dart';
@@ -83,32 +85,34 @@ class AppPages {
       binding: DetailProductBinding(),
     ),
     GetPage(
-      name: _Paths.NEWS, 
+      name: _Paths.NEWS,
       page: () => NewsView(),
       binding: NewsBinding(),
     ),
     GetPage(
-      name: _Paths.EXPLORE, 
+      name: _Paths.EXPLORE,
       page: () => ExploreView(),
       binding: ExploreBinding(),
     ),
     GetPage(
-      name: _Paths.DETAIL_NEWS,
-      page: () => DetailNewsView(),
-      binding: NewsBinding()
-    ),
+        name: _Paths.DETAIL_NEWS,
+        page: () => DetailNewsView(),
+        binding: NewsBinding()),
     GetPage(
-      name: _Paths.SEARCH_PRODUCT, 
-      page: () => SearchProductView(),
-      binding: SearchProductBinding()
-    ),
+        name: _Paths.SEARCH_PRODUCT,
+        page: () => SearchProductView(),
+        binding: SearchProductBinding()),
     GetPage(
-      name: _Paths.SEARCH_ECODE,
-      page: () => SearchEcodeView(),
-      binding: SearchEcodeBinding()),
+        name: _Paths.SEARCH_ECODE,
+        page: () => SearchEcodeView(),
+        binding: SearchEcodeBinding()),
     GetPage(
         name: _Paths.DETAIL_ECODE,
         page: () => DetailEcodeView(),
         binding: DetailEcodeBinding()),
+    GetPage(
+        name: _Paths.DASHBOARD,
+        page: () => DashboardView(),
+        binding: DashboardBinding()),
   ];
 }

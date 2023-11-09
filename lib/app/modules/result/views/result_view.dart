@@ -168,7 +168,7 @@ class ResultView extends GetView<ResultController> {
                                 var dataResult = ingredients.data![index];
                                 return SizedBox(
                                   height: 160,
-                                  child: buildEcodeCard(dataResult),
+                                  child: buildEcodeCard(dataResult, context),
                                 );
                                 // return Padding(
                                 //   padding:
@@ -201,8 +201,8 @@ class ResultView extends GetView<ResultController> {
                                 //                   mainAxisAlignment:
                                 //                       MainAxisAlignment
                                 //                           .spaceBetween,
-                                //                   children: label(
-                                //                       ingred: dataResult)),
+                                                  // children: label(
+                                                      // ingred: dataResult)),
                                 //             ],
                                 //           ),
                                 //         ),

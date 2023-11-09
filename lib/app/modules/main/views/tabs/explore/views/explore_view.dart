@@ -28,7 +28,7 @@ class ExploreView extends GetView<ExploreController> {
             ),
             background: Image.asset(
               exploreHeader,
-              fit: BoxFit.fitHeight,
+              fit: BoxFit.cover,
             ),
           ),
           expandedHeight: getDeviceHeight(context) * 0.22,
@@ -44,9 +44,8 @@ class ExploreView extends GetView<ExploreController> {
                     borderRadius: new BorderRadius.circular(10)),
                 child: new InkWell(
                   onTap: () {
-                    controller.navigateToExplorePage(controller.explore[index].kat);
-                    // ini nanti idi arahin ke pagenya
-                    // print(controller.explore[index].kat);
+                    controller
+                        .navigateToExplorePage(controller.explore[index].kat);
                   },
                   child: new Stack(
                     children: [

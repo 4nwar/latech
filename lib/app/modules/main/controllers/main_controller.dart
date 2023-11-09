@@ -8,6 +8,7 @@ import 'package:halalin/app/data/models/ingredient.dart';
 import 'package:halalin/app/data/services/halal_services.dart';
 import 'package:halalin/app/modules/main/views/tabs/about/views/about_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/bookmark/views/bookmark_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/dashboard/views/dashboard_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/explore/views/explore_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/home/views/home_view.dart';
 import 'package:halalin/app/modules/main/views/tabs/news/views/news_view.dart';
@@ -18,7 +19,7 @@ class MainController extends GetxController {
   RxList<Ingredient> result = RxList();
   final RxInt currentIndex = 0.obs;
   List<Widget> viewBody = [
-    const HomeView(),
+    DashboardView(),
     ExploreView(),
     Container(),
     const BookmarkView(),

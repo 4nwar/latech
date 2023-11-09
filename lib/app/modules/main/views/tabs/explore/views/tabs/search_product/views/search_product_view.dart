@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/data/models/product.dart';
-import 'package:halalin/app/modules/search_product/controllers/search_product_controller.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../controllers/search_product_controller.dart';
 
 class SearchProductView extends GetView<SearchProductController> {
   final TextEditingController searchController = TextEditingController();

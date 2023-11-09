@@ -5,10 +5,10 @@ import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/data/models/ecode.dart';
-import 'package:halalin/app/modules/search_ecode/controllers/search_ecode_controller.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../ui/ecodeCard_widget.dart';
+import '../../../../../../../../../ui/ecodeCard_widget.dart';
+import '../controllers/search_ecode_controller.dart';
 
 class SearchEcodeView extends GetView<SearchEcodeController> {
   SearchEcodeView({super.key});
@@ -86,7 +86,7 @@ class SearchEcodeView extends GetView<SearchEcodeController> {
                   // Tampilkan hasil pencarian di sini
                   return SizedBox(
                     height: 160,
-                    child: buildEcodeCard(ecodeList[index]),
+                    child: buildEcodeCard(ecodeList[index], context),
                   );
                 },
               );

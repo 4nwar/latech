@@ -29,6 +29,7 @@ dependencies:
   shared_preferences: ^2.0.15
   sliding_up_panel: ^2.0.0+1
   dio: ^5.3.3
+  carousel_slider: ^4.2.1
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
@@ -82,3 +83,9 @@ flutter:
     - assets/images/ecode.png
     - assets/images/EcodeOrnamen.png
     - assets/images/ProductOrnamen.png
+    - assets/images/articleCard.png
+    - assets/images/newsCard.png
+    - assets/images/ukmCard.png
+    - assets/images/bottomBanner.png
+    - assets/images/ScanIcon.png
+    - assets/images/ExploreIcon.png

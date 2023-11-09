@@ -4,6 +4,7 @@ import 'package:halalin/app/data/models/explore.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 
 class ExploreController extends GetxController {
+  
   List<Explore> explore = [
     Explore(kat: "Article",img: expArticle,),
     Explore(kat: "Product", img: expProduct),

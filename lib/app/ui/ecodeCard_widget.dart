@@ -8,7 +8,7 @@ import '../constant/values.dart';
 import '../data/models/ecode.dart';
 import '../routes/app_pages.dart';
 
-Widget buildEcodeCard(EcodeModel ecode) {
+Widget buildEcodeCard(EcodeModel ecode, context) {
   Color cardColor;
   Color statusColor;
 
@@ -43,7 +43,7 @@ Widget buildEcodeCard(EcodeModel ecode) {
           child: Stack(
             children: [
               Container(
-                width: double.infinity,
+                width: getDeviceWidth(context),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: cardColor,
@@ -54,7 +54,7 @@ Widget buildEcodeCard(EcodeModel ecode) {
                 child: Image.asset(
                   ornamentEcode,
                   fit: BoxFit.cover,
-                  width: double.infinity,
+                  width: getDeviceWidth(context),
                 ),
               ),
               Padding(
@@ -105,7 +105,7 @@ Widget buildEcodeCard(EcodeModel ecode) {
   );
 }
 
-Widget buildDetailEcodeCard(EcodeModel ecode) {
+Widget buildDetailEcodeCard(EcodeModel ecode, context) {
   Color cardColor;
   Color statusColor;
 
@@ -136,7 +136,7 @@ Widget buildDetailEcodeCard(EcodeModel ecode) {
           children: [
             Container(
               // height: 150,
-              width: double.infinity,
+              width: getDeviceWidth(context),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: cardColor //diubah sesuai status klo bisa
@@ -147,7 +147,7 @@ Widget buildDetailEcodeCard(EcodeModel ecode) {
               child: Image.asset(
                 ornamentEcode,
                 fit: BoxFit.cover,
-                width: double.infinity,
+                width: getDeviceWidth(context),
                 // height: 150,
               ),
             ),

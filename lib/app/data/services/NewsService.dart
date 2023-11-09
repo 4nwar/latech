@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 
 import '../models/NewsItem.dart';
 import '../models/News_detail.dart';
+import 'config/api_service.dart';
 
 class NewsService {
   final Dio _dio = Dio();
@@ -9,7 +10,7 @@ class NewsService {
   Future<List<NewsItem>> fetchNewsData(String category) async {
     try {
       final response = await _dio
-          .get('http://192.168.100.38/api-halal-mui/kategori/cat', //perbaiki alamat
+          .get('${ApiService.baseUrl}artikel/', //perbaiki alamat
           queryParameters: {
             "category" : category,
             "page" :1
@@ -35,19 +36,19 @@ class NewsService {
     }
   }
 
-  Future<List<NewsDetailModel>> fetchNewsDetailData(String link) async {
-    try {
-      final response = await _dio.get(
-          'http://192.168.100.38/api-halal-mui/pagination/detail/', //perbaiki alamat
-          queryParameters: {"url": link});
-      if (response.statusCode == 200) {
-        final jsonData = response.data as List<dynamic>;
-        return jsonData.map((item) => NewsDetailModel.fromJson(item)).toList();
-      } else {
-        throw Exception('Failed to load data');
-      }
-    } catch (e) {
-      throw Exception('Failed to load data: $e');
-    }
-  }
+  // Future<List<NewsDetailModel>> fetchNewsDetailData(String link) async {
+  //   try {
+  //     final response = await _dio.get(
+  //         'http://192.168.100.38/api-halal-mui/pagination/detail/', //perbaiki alamat
+  //         queryParameters: {"url": link});
+  //     if (response.statusCode == 200) {
+  //       final jsonData = response.data as List<dynamic>;
+  //       return jsonData.map((item) => NewsDetailModel.fromJson(item)).toList();
+  //     } else {
+  //       throw Exception('Failed to load data');
+  //     }
+  //   } catch (e) {
+  //     throw Exception('Failed to load data: $e');
+  //   }
+  // }
 }

@@ -91,20 +91,20 @@ class NewsView extends GetView<NewsController> {
         ),
       ),
     );
-    Widget buildNewsList(List<NewsItem> data) {
-      if (newsController.isLoading.value) {
-        return Center(
-          child: CircularProgressIndicator(),
-        );
-      } else {
-        return ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (context, index) {
-            final newsItem = data[index];
-            return NewsCardWidget(newsItem: newsItem);
-          },
-        );
-      }
-    }
+    // Widget buildNewsList(List<NewsItem> data) {
+    //   if (newsController.isLoading.value) {
+    //     return Center(
+    //       child: CircularProgressIndicator(),
+    //     );
+    //   } else {
+    //     return ListView.builder(
+    //       itemCount: data.length,
+    //       itemBuilder: (context, index) {
+    //         final newsItem = data[index];
+    //         return NewsCardWidget(newsItem: newsItem);
+    //       },
+    //     );
+    //   }
+    // }
   }
 }

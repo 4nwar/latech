@@ -18,6 +18,7 @@ abstract class Routes {
   static const SEARCH_PRODUCT = _Paths.SEARCH_PRODUCT;
   static const SEARCH_ECODE = _Paths.SEARCH_ECODE;
   static const DETAIL_ECODE = _Paths.DETAIL_ECODE;
+  static const DASHBOARD = _Paths.DASHBOARD;
 }
 
 abstract class _Paths {
@@ -37,4 +38,5 @@ abstract class _Paths {
   static const SEARCH_PRODUCT = '/search-product';
   static const SEARCH_ECODE = '/search-ecode';
   static const DETAIL_ECODE = '/detail-ecode';
+  static const DASHBOARD = '/dashboard';
 }
