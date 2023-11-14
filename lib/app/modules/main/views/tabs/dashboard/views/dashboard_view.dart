@@ -1,10 +1,10 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/modules/main/views/tabs/dashboard/controllers/dashboard_controller.dart';
 import 'package:halalin/app/routes/app_pages.dart';
-import 'package:iconsax/iconsax.dart';
 
 class DashboardView extends GetView<DashboardController> {
   const DashboardView({super.key});
@@ -27,19 +27,72 @@ class DashboardView extends GetView<DashboardController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   //appbar space
-                  SizedBox(height: 120),
+                  SizedBox(height: 100),
                   //banner
-
                   Container(
-                    height: getDeviceHeight(context) * 0.3,
-                    
+                    height: 150,
+                    margin: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                    child: ListView(
+                      children: [
+                        CarouselSlider( 
+                          options: CarouselOptions(
+                            height: 150,
+                            viewportFraction: 1,
+                            autoPlay: true,
+                            pauseAutoPlayInFiniteScroll: true,
+                            autoPlayAnimationDuration:
+                                const Duration(seconds: 3),
+                            
+                          ),
+                          items:  [
+                            //gambar 1
+                            Container(
+                              // height: 100,
+                              margin: EdgeInsets.all(6.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                image: DecorationImage(
+                                  image: AssetImage(banner1),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              // height: 100,
+                              margin: EdgeInsets.all(6.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                image: DecorationImage(
+                                  image: AssetImage(banner2),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              // height: 100,
+                              margin: EdgeInsets.all(6.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                image: DecorationImage(
+                                  image: AssetImage(banner3),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        // SizedBox(
+                        //   height: 4,
+                        // )
+                      ],
+                    ),
                   ),
                   
 
                   //buttonSection
                   Container(
-                    height: getDeviceHeight(context)*0.3,
-                    margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                    height: 200,
+                    // margin: EdgeInsets.symmetric(vertical: 8),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GridView.count(
@@ -58,23 +111,23 @@ class DashboardView extends GetView<DashboardController> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 24, vertical: 20),
+                                    horizontal: 16, vertical: 20),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Container(
-                                      width: getDeviceWidth(context) * 0.24,
+                                      width: getDeviceWidth(context) * 0.2,
                                       margin: EdgeInsets.all(4),
-                                      child: Image.asset(thumbExplore),
+                                      child: Image.asset(thumbExplore, scale: 0.6,),
                                     ),
                                     SizedBox(
-                                      height: 8,
+                                      height: 2,
                                     ),
                                     Text(
                                       "Search Product",
                                       style: textCustom(
-                                          semiBoldFont, 16, Colors.white),
+                                          semiBoldFont, 12, Colors.white),
                                     ),
                                   ],
                                 ),
@@ -92,23 +145,23 @@ class DashboardView extends GetView<DashboardController> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 24, vertical: 20),
+                                    horizontal: 16, vertical: 20),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Container(
-                                      width: getDeviceWidth(context) * 0.24,
+                                      width: getDeviceWidth(context) * 0.2,
                                       margin: EdgeInsets.all(4),
-                                      child: Image.asset(thumbScan),
+                                      child: Image.asset(thumbScan, scale: 0.8,),
                                     ),
                                     SizedBox(
-                                      height: 8,
+                                      height: 2,
                                     ),
                                     Text(
                                       "Scan Product",
                                       style: textCustom(
-                                          semiBoldFont, 16, Colors.white),
+                                          semiBoldFont, 12, Colors.white),
                                     ),
                                   ],
                                 ),
@@ -125,14 +178,14 @@ class DashboardView extends GetView<DashboardController> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.only(left: 12, top: 16, bottom: 4),
+                        padding: EdgeInsets.only(left: 12, bottom: 4),
                         child: Text(
                           "E-Code",
                           style: textCustom(mediumFont, 20, Colors.black),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 12, top: 16, bottom: 4),
+                        padding: EdgeInsets.only(right: 12,bottom: 4),
                         child: InkWell(
                           child: Text(
                             "See more",
@@ -159,7 +212,7 @@ class DashboardView extends GetView<DashboardController> {
                           itemBuilder: (context, index) {
                             switch (controller.ecodeList[index].status
                                 .toLowerCase()) {
-                              case "doubtful":
+                              case "syubhat":
                                 cardColor = Colors.amber.shade100;
                                 statusColor = Colors.amber.shade400;
                                 break;
@@ -254,14 +307,14 @@ class DashboardView extends GetView<DashboardController> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.only(left: 12, top: 16, bottom: 4),
+                        padding: EdgeInsets.only(left: 12,bottom: 4),
                         child: Text(
                           "Category Article",
                           style: textCustom(mediumFont, 20, Colors.black),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 12, top: 16, bottom: 4),
+                        padding: EdgeInsets.only(right: 12,bottom: 4),
                         child: InkWell(
                           child: Text(
                             "See more",
@@ -365,9 +418,9 @@ class DashboardView extends GetView<DashboardController> {
           Container(
             color: primary,
             width: getDeviceWidth(context),
-            height: 120,
+            height: 100,
             child: Container(
-              margin: EdgeInsets.all(16),
+              margin: EdgeInsets.all(12),
               child: Image.asset(
                 headline,
                 fit: BoxFit.contain,

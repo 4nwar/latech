@@ -14,7 +14,7 @@ Widget buildEcodeCard(EcodeModel ecode, context) {
 
   // Tentukan warna kartu berdasarkan status dari API
   switch (ecode.status.toLowerCase()) {
-    case "doubtful":
+    case "syubhat":
       cardColor = Colors.amber.shade100;
       statusColor = Colors.amber.shade400;
       break;
@@ -111,7 +111,7 @@ Widget buildDetailEcodeCard(EcodeModel ecode, context) {
 
   // Tentukan warna kartu berdasarkan status dari API
   switch (ecode.status.toLowerCase()) {
-    case "doubtful":
+    case "syubhat":
       cardColor = Colors.amber.shade100;
       statusColor = Colors.amber.shade400;
       break;

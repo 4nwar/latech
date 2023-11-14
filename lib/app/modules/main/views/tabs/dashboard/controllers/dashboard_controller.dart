@@ -6,6 +6,7 @@ import '../../../../../../data/models/ecode.dart';
 import '../../../../../../data/services/ecode_service.dart';
 
 class DashboardController extends GetxController {
+  
     List<ThumbArticle> thumbnail = [
       ThumbArticle(txt: textTumbarticle, img: thumbArticle, cat:"Article"),
       ThumbArticle(txt: textTumbNews, img: thumbNews, cat: "News"),

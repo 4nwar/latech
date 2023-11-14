@@ -4,7 +4,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
-import 'package:halalin/app/data/models/explore.dart';
 import 'package:halalin/app/modules/main/views/tabs/explore/controllers/explore_controller.dart';
 
 class ExploreView extends GetView<ExploreController> {

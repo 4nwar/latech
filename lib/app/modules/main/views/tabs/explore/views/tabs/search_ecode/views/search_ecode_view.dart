@@ -3,8 +3,6 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
-import 'package:halalin/app/constant/values.dart';
-import 'package:halalin/app/data/models/ecode.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../../../../../ui/ecodeCard_widget.dart';

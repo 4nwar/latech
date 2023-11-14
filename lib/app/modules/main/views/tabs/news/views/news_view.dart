@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:halalin/app/modules/main/views/tabs/news/controllers/news_controller.dart';
 import 'package:halalin/app/ui/newsCard_widget.dart';
-
-import '../../../../../../data/models/NewsItem.dart';
+import 'package:iconsax/iconsax.dart';
 
 class NewsView extends GetView<NewsController> {
   NewsView({super.key});
@@ -30,16 +28,19 @@ class NewsView extends GetView<NewsController> {
             indicatorSize: TabBarIndicatorSize.label,
             indicatorColor: Colors.white,
           ),
-          actions: <Widget>[
-            Icon(
-              Iconsax.search_normal,
-              color: Colors.white,
-            ),
-            SizedBox(
-              width: 12,
-            )
-          ],
+
+          //search Icon
+          // actions: <Widget>[
+          //   Icon(
+          //     Iconsax.search_normal,
+          //     color: Colors.white,
+          //   ),
+          //   SizedBox(
+          //     width: 12,
+          //   )
+          // ],
         ),
+
         body: TabBarView(
           children: [
             Obx(() {
@@ -91,20 +92,5 @@ class NewsView extends GetView<NewsController> {
         ),
       ),
     );
-    // Widget buildNewsList(List<NewsItem> data) {
-    //   if (newsController.isLoading.value) {
-    //     return Center(
-    //       child: CircularProgressIndicator(),
-    //     );
-    //   } else {
-    //     return ListView.builder(
-    //       itemCount: data.length,
-    //       itemBuilder: (context, index) {
-    //         final newsItem = data[index];
-    //         return NewsCardWidget(newsItem: newsItem);
-    //       },
-    //     );
-    //   }
-    // }
   }
 }

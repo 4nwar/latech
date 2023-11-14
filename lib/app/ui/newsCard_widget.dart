@@ -44,7 +44,7 @@ class NewsCardWidget extends StatelessWidget {
                       // ),
                       child: FadeInImage.assetNetwork(
                         //ubah place holder dengan img yang sesuaai
-                        placeholder: ornamentProduct,
+                        placeholder: thumbNews,
                         image: newsItem.img,
                         fit: BoxFit.cover,
                         width: getDeviceWidth(context),

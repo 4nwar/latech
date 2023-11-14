@@ -43,22 +43,47 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
     );
   }
 
+  // Future<void> processImage(InputImage inputImage) async {
+  //   if (!_canProcess) return;
+  //   if (_isBusy) return;
+  //   _isBusy = true;
+  //   setState(() {
+  //     _text = '';
+  //   });
+  //   recognizedText = await _textRecognizer.processImage(inputImage);
+
+  //   // _listIngredient?.clear();
+  //   // for (final textBlock in recognizedText!.blocks) {
+  //   //   List<Ingredient> res =
+  //   //       await HalalServices.getHalal(input: textBlock.text);
+  //   //   _listIngredient?.addAll(res);
+  //   // }
+  //   // print(_listIngredient);
+
+  //   if (inputImage.inputImageData?.size != null &&
+  //       inputImage.inputImageData?.imageRotation != null) {
+  //     final painter = TextRecognizerPainter(
+  //         recognizedText!,
+  //         inputImage.inputImageData!.size,
+  //         inputImage.inputImageData!.imageRotation);
+  //     _customPaint = CustomPaint(painter: painter);
+  //   } else {
+  //     _text = 'Recognized text:\n\n${recognizedText!.text}';
+  //     _customPaint = null;
+  //   }
+  //   _isBusy = false;
+  //   if (mounted) {
+  //     setState(() {});
+  //   }
+  // }
+
+  //saya mengganti yang atas dengan ini dan merubah cameraview dengan statefull
   Future<void> processImage(InputImage inputImage) async {
     if (!_canProcess) return;
     if (_isBusy) return;
     _isBusy = true;
-    setState(() {
-      _text = '';
-    });
-    recognizedText = await _textRecognizer.processImage(inputImage);
 
-    // _listIngredient?.clear();
-    // for (final textBlock in recognizedText!.blocks) {
-    //   List<Ingredient> res =
-    //       await HalalServices.getHalal(input: textBlock.text);
-    //   _listIngredient?.addAll(res);
-    // }
-    // print(_listIngredient);
+    recognizedText = await _textRecognizer.processImage(inputImage);
 
     if (inputImage.inputImageData?.size != null &&
         inputImage.inputImageData?.imageRotation != null) {

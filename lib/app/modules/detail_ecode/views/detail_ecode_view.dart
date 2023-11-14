@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/data/models/ecode.dart';
 import 'package:halalin/app/ui/ecodeCard_widget.dart';

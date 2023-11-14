@@ -22,4 +22,14 @@ class NewsDetailModel {
       content: json['content'],
     );
   }
+
+  toMap() {
+    return{
+      "title" : title,
+      "img" : img,
+      "writer" : writer,
+      "date" : date,
+      "content" : content,
+    };
+  }
 }

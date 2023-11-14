@@ -1,14 +1,13 @@
-
 import 'package:get/get.dart';
 import 'package:halalin/app/data/models/News_detail.dart';
 import 'package:halalin/app/data/services/NewsDetail_service.dart';
-
-import '../../../data/services/NewsService.dart';
+import 'package:halalin/app/data/services/local/Database.dart';
 
 class DetailNewsController extends GetxController {
-  // final count = 0.obs;
   var isLoading = true.obs;
+  var isBookmarked = false.obs;
   final detailNewslist = <NewsDetailModel>[].obs;
+  RxList<NewsDetailModel> news = RxList();
 
   @override
   void onInit() {
@@ -20,9 +19,11 @@ class DetailNewsController extends GetxController {
       isLoading(true);
       final service = NewsDetailService();
       final data = await service.fetchNewsDetailData(link);
-      detailNewslist.clear(); // Bersihkan daftar yang ada jika perlu
-      detailNewslist
-          .add(data); // Tambahkan objek NewsDetailModel ke dalam daftar
+      detailNewslist.clear();
+      detailNewslist.add(data);
+      // Check if the article is bookmarked
+      isBookmarked.value =
+          await NewsDatabase.instance.isBookmarkExists(data.title);
     } catch (e) {
       print(e);
       throw e;
@@ -31,48 +32,50 @@ class DetailNewsController extends GetxController {
     }
   }
 
-  //data berhasil diambil namun eror
+  Future<void> updateSaveDataBookmarkNews() async {
+    try {
+      if (detailNewslist.isNotEmpty) {
+        if (isBookmarked.value) {
+          await NewsDatabase.instance
+              .deleteBookmark(detailNewslist.first.title);
+        } else {
+          await NewsDatabase.instance.insertBookmark(detailNewslist.first);
+        }
+        isBookmarked.toggle(); // Toggle the bookmark status
+      }
+    } catch (e) {
+      print("Error updating bookmark status: $e");
+    }
+  }
 
-  // Future<void> fetchDetailData(String link) async {
-  //   try {
-  //     isLoading(true); // Set isLoading menjadi true saat memuat data
-  //     final service = NewsDetailService();
-  //     final data = await service.fetchNewsDetailData(link);
-  //     detailNewslist.value = data as List<NewsDetailModel>; // Gunakan detailNews.value untuk menetapkan data
-  //   } catch (e) {
-  //     // Handle error
-  //     print(e);
-  //     throw e;
-  //   } finally {
-  //     isLoading(false); // Set isLoading menjadi false setelah selesai
-  //   }
-  // }
+  Future<void> saveToDatabase() async {
+    try {
+      if (detailNewslist.isNotEmpty) {
+        await NewsDatabase.instance.insertBookmark(detailNewslist.first);
+        isBookmarked.value = true;
+        // Optionally show a success message or perform other actions after saving
+      }
+    } catch (e) {
+      print("Error saving to database: $e");
+    }
+  }
 
+  Future<void> removeFromDatabase() async {
+    try {
+      if (detailNewslist.isNotEmpty) {
+        await NewsDatabase.instance.deleteBookmark(detailNewslist.first.title);
+        isBookmarked.value = false;
+        // Optionally show a success message or perform other actions after removing
+      }
+    } catch (e) {
+      print("Error removing from database: $e");
+    }
+  }
 
-  
-  // void fetchDetailData(String link) async {
-  //   try {
-  //     isLoading(true); // Set isLoading menjadi true saat memuat data
-  //     final service = NewsService();
-  //     final data = await service.fetchNewsDetailData(link);
-  //     detailNewslist.assignAll(data);
-  //   } catch (e) {
-  //     // Handle error
-  //     print(e);
-  //   } finally {
-  //     isLoading(false); // Set isLoading menjadi false setelah selesai
-  //   }
-  // }
-
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  // }
-
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
-
-  // void increment() => count.value++;
+  @override
+  void onClose() {
+    // Close the database when the controller is disposed to avoid memory leaks
+    // NewsDatabase.instance.close();
+    super.onClose();
+  }
 }

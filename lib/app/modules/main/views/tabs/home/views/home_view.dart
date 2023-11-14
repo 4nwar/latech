@@ -1,6 +1,4 @@
-import 'package:akar_icons_flutter/akar_icons_flutter.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
@@ -235,7 +233,7 @@ class HomeView extends GetView<HomeController> {
               maxLength: 40,
               decoration: InputDecoration(
                 prefixIcon: Icon(
-                  AkarIcons.search,
+                  Iconsax.search_normal,
                   color: primary,
                 ),
                 filled: true,

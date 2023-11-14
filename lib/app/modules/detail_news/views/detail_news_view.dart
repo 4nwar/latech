@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
@@ -74,15 +74,33 @@ class DetailNewsView extends GetView<DetailNewsController> {
                             ),
                           ),
                           Align(
-                              alignment: Alignment.topRight,
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Iconsax.archive_add,
-                                  size: 24,
-                                  color: primary,
-                                ),
-                              ))
+                            alignment: Alignment.topRight,
+                            child: IconButton(
+                              onPressed: () async {
+                                await controller.updateSaveDataBookmarkNews();
+                              },
+                              icon: Obx(() {
+                                if (controller.detailNewslist.isNotEmpty) {
+                                  bool isBookmarked =
+                                      controller.isBookmarked.value;
+
+                                  return Icon(
+                                    isBookmarked
+                                        ? Iconsax.archive_add5
+                                        : Iconsax.archive_add,
+                                    size: 24,
+                                    color:
+                                        isBookmarked ? Colors.green : primary,
+                                  );
+                                } 
+                                else {
+                                  return Icon(Iconsax.happyemoji4,
+                                      size: 24, color: primary);
+                                }
+                              }),
+                            ),
+                          ),
+
                         ],
                       ),
                       Row(
@@ -97,7 +115,7 @@ class DetailNewsView extends GetView<DetailNewsController> {
                               SizedBox(width: 4),
                               Text(
                                 detail.date,
-                                style: textCustom(mediumFont, 16, Colors.grey),
+                                style: textCustom(mediumFont, 14, Colors.grey),
                               )
                             ]),
                             SizedBox(width: 20),
@@ -112,12 +130,17 @@ class DetailNewsView extends GetView<DetailNewsController> {
                                 Text(
                                   detail.writer,
                                   style:
-                                      textCustom(mediumFont, 16, Colors.grey),
+                                      textCustom(mediumFont, 14, Colors.grey),
                                 )
                               ],
                             ),
                           ]),
-                      Expanded(child: Html(data: detail.content)),
+                      Expanded(
+                        child: Html(data: detail.content),
+                      ),
+                      SizedBox(
+                        height: 16,
+                      )
                     ],
                   ),
                 ),

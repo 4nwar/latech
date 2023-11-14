@@ -21,4 +21,6 @@ Future<void> main() async {
       getPages: AppPages.routes,
     ),
   );
+
+  //hapus pakage icon_akar, sharedpreference dan teseract
 }

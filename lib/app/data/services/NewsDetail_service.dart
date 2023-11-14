@@ -1,14 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:halalin/app/data/models/News_detail.dart';
-import 'package:halalin/app/data/models/ecode.dart';
-
+import 'package:sqflite/sqflite.dart';
 import 'config/api_service.dart';
+import 'local/Database.dart';
 
 class NewsDetailService {
   final Dio _dio = Dio();
 
   //bisajadi ga kepake
-  
   Future<NewsDetailModel> fetchNewsDetailData(String link) async {
     try {
       final response = await _dio.get(
@@ -26,18 +25,22 @@ class NewsDetailService {
       throw Exception('Gagal mengambil data: $e');
     }
   }
-  //  Future<NewsDetailModel> fetchNewsDetailData(String url) async {
-  //   try {
-  //     final response = await _dio.get(
-  //         'http://192.168.100.38/api-halal-mui/pagination/detail/',
-  //         queryParameters: {"url": url});
-  //     if (response.statusCode == 200) {
-  //       return NewsDetailModel.fromJson(response.data);
-  //     } else {
-  //       throw Exception('Failed to load data');
-  //     }
-  //   } catch (e) {
-  //     throw Exception('Failed to load data: $e');
+
+  // static Future<void> savedDataBookmarkNews(
+  //     {required NewsDetailModel newsDetail}) async {
+  //   final db = await NewsDatabase.instance.database;
+  //   if (newsDetail.is_bookmark == 'true') {
+  //     await db.insert(
+  //       NewsDatabase.tableBookmark,
+  //       newsDetail.toMap(),
+  //       conflictAlgorithm: ConflictAlgorithm.replace,
+  //     );
+  //   } else {
+  //     await db.delete(
+  //       NewsDatabase.tableBookmark,
+  //       where: '${NewsDatabase.columnTitle} = ?',
+  //       whereArgs: [newsDetail.title],
+  //     );
   //   }
   // }
 }

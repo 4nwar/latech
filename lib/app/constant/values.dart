@@ -33,6 +33,9 @@ const String thumbUkm = 'assets/images/ukmCard.png';
 const String bannerBottom = 'assets/images/bottomBanner.png';
 const String thumbScan = 'assets/images/ScanIcon.png';
 const String thumbExplore = 'assets/images/ExploreIcon.png';
+const String banner1 = 'assets/images/banner1.png';
+const String banner2 = 'assets/images/banner2.png';
+const String banner3 = 'assets/images/banner3.png';
 
 //text
 const String hintDate = "Unknown Date";

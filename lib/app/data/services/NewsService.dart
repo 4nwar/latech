@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 
 import '../models/NewsItem.dart';
-import '../models/News_detail.dart';
 import 'config/api_service.dart';
 
 class NewsService {
